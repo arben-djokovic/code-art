@@ -1,0 +1,13 @@
+.authPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    .title{
+        color: #545250;
+    }
+    .authForm{
+        background-color: #1D1A19;
+    }
+}
