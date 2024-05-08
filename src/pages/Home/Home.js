@@ -14,7 +14,10 @@ export default function Home() {
       auth.logout();
       history.push("/log-in");
     } catch (err) {
-      toast.error(err.response.data.responseCodes[0].responseKey);
+        console.log(err)
+        if (err.response) {
+            toast.error(error.response.data.responseCodes[0].responseKey);
+        }
     }
   };
   return (
