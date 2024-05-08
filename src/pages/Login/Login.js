@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom";
 import { auth } from "../../services/AuthService";
 import { GuestRoute } from "../../services/GuestRoute";
 import { toast } from "react-toastify";
+import PasswordStrengthBar from 'react-password-strength-bar';
+import { motion } from "framer-motion"
 
 export default function Login() {
   const history = useHistory();
@@ -42,10 +44,19 @@ export default function Login() {
   return (
     <GuestRoute>
       <div className="authPage">
-        <form className="authForm">
+        <motion.form
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
+         className="authForm">
           <div className="input">
-            <p>Username</p>
-            <input
+            <label for="usernameInput"><p>Username</p></label>
+            <motion.input
+              whileHover={{
+                scale: 1.03,
+                transition: { duration: 0.2 },
+              }}
+              id="usernameInput"
               value={usernameInput}
               onChange={(e) => setUsernameInput(e.target.value)}
               type="text"
@@ -53,18 +64,24 @@ export default function Login() {
             />
           </div>
           <div className="input">
-            <p>Password</p>
-            <input
+            <label for="passwordInput"><p>Password</p></label>
+            <motion.input
+              whileHover={{
+                scale: 1.03,
+                transition: { duration: 0.2 },
+              }}
               value={passwordInput}
+              id="passwordInput"
               onChange={(e) => setPasswordInput(e.target.value)}
               type="password"
               name="password"
             />
+            <PasswordStrengthBar password={passwordInput} />
           </div>
-          <button className="loginBtn" onClick={loginFun}>
+          <button className="orangeBtn" onClick={loginFun}>
             Log in
           </button>
-        </form>
+        </motion.form>
       </div>
     </GuestRoute>
   );

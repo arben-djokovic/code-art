@@ -1,0 +1,25 @@
+body {
+  color: white;
+  background-color: #211F1D;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+button, a{
+  cursor: pointer;
+}
+.orangeBtn{
+  margin: auto;
+  margin-top: 20px;
+  background-color: #C97E24;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 30px;
+  cursor: pointer;
+  color: white;
+  &:hover{
+    opacity: .8;
+    scale: 1.1;
+  }
+}
