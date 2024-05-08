@@ -1,10 +1,20 @@
 import React from "react";
+import { Route, Redirect} from 'react-router-dom';
 import { auth } from "./AuthService";
-import { Navigate } from 'react-router';
 
-export const GuestRoute = ({children}) => {
+
+export const GuestRoute = ({ children, ...rest }) => {
   let isAuthenticated = auth.getAuthStatus();
   return (
-        isAuthenticated ? <Navigate to="/" /> : children
+    <Route
+      {...rest}
+      render={({ location }) =>
+        isAuthenticated ? (
+          <Redirect to="/" replace />
+        ) : (
+          children
+        )
+      }
+    />
   );
 };

@@ -1,10 +1,19 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import { auth } from "./AuthService";
 
-export const PrivateRoute = ({children}) => {
+export const PrivateRoute = ({ children, ...rest }) => {
   let isAuthenticated = auth.getAuthStatus();
   return (
-        isAuthenticated ? children : <Navigate to="/log-in" />
+    <Route
+      {...rest}
+      render={({ location }) =>
+        isAuthenticated ? (
+          children
+        ) : (
+          <Redirect to="/log-in" />
+        )
+      }
+    />
   );
 };
