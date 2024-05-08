@@ -4,6 +4,7 @@ import apiCalls from "../../api/apiCalls";
 import { useHistory } from "react-router-dom";
 import { auth } from "../../services/AuthService";
 import { GuestRoute } from "../../services/GuestRoute";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const history = useHistory();
