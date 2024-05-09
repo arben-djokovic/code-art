@@ -11,7 +11,9 @@
         display: flex;
         flex-direction: column;
         margin: auto;
-        width: 500px;
+        width: 50%;
+        max-width: 500px;
+        min-width: 130px;
         grid-gap: 10px;
         background-color: #1D1A19;
         padding: 30px;

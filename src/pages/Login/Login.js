@@ -50,7 +50,7 @@ export default function Login() {
         transition={{ duration: 1 }}
          className="authForm">
           <div className="input">
-            <label for="usernameInput"><p>Username</p></label>
+            <label htmlFor="usernameInput"><p>Username</p></label>
             <motion.input
               whileHover={{
                 scale: 1.03,
@@ -64,7 +64,7 @@ export default function Login() {
             />
           </div>
           <div className="input">
-            <label for="passwordInput"><p>Password</p></label>
+            <label htmlFor="passwordInput"><p>Password</p></label>
             <motion.input
               whileHover={{
                 scale: 1.03,
